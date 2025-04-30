@@ -7,6 +7,3 @@ repos:
       - id: ruff
         args: [ --fix ]
         files: ^chk/.*\.py$
-      # Run the formatter.
-      - id: ruff-format
-        files: ^chk/.*\.py$

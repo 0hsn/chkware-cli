@@ -18,6 +18,21 @@ class FileLoader:
     """File loader utility"""
 
     @staticmethod
+    def load_file(file_name: str) -> Path:
+        """Load file after validating"""
+
+        allowed_list = [".chk", ".yaml", ".yml"]
+        file_path = Path(file_name)
+
+        if not file_path.is_file():
+            raise FileNotFoundError("File not found")
+
+        if file_path.suffix not in allowed_list:
+            raise LookupError("File not allowed")
+
+        return file_path
+
+    @staticmethod
     def is_file_ok(file_name: str, allowed_list: list | None = None) -> bool:
         """Check if chk file exists, when extension is allowed
         :param file_name: File name to check
